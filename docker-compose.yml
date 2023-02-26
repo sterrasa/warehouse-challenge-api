@@ -1,0 +1,24 @@
+version: '3'
+services:
+  db:
+    image: mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: $PASSWORD
+      MYSQL_DATABASE: $DATABASE
+    ports:
+      - $MYSQLDB_DOCKER_PORT:$MYSQLDB_LOCAL_PORT
+  app:
+    build: .
+    restart: unless-stopped
+    environment:
+      HOST: db
+      USER: $USER
+      PASSWORD: $PASSWORD
+      DATABASE: $DATABASE
+      DIALECT: $DIALECT
+    ports:
+      - $NODE_DOCKER_PORT:$NODE_LOCAL_PORT
+    depends_on:
+      - db
+    command: sh -c "sleep 15 && npm start"

@@ -1,0 +1,30 @@
+CREATE DATABASE `warehouse_db`
+
+CREATE TABLE products (
+  id INT NOT NULL AUTO_INCREMENT,
+  name VARCHAR(255) NOT NULL,
+  price DECIMAL(10, 2) NOT NULL,
+  `createdAt` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  `updatedAt` TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (id)
+);
+
+CREATE TABLE articles (
+  id INT NOT NULL AUTO_INCREMENT,
+  name VARCHAR(255) NOT NULL,
+  stock INT NOT NULL,
+  `createdAt` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  `updatedAt` TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (id)
+);
+
+CREATE TABLE product_articles (
+  product_id INT NOT NULL,
+  article_id INT NOT NULL,
+  quantity INT NOT NULL,
+  FOREIGN KEY (product_id) REFERENCES products(id),
+  FOREIGN KEY (article_id) REFERENCES articles(id),
+  PRIMARY KEY (product_id, article_id),
+   `createdAt` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  `updatedAt` TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);

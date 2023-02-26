@@ -1,0 +1,125 @@
+{
+	"info": {
+		"_postman_id": "bd93f971-4767-4d3b-88b1-d9c03b8052f3",
+		"name": "Warehouse",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15265701"
+	},
+	"item": [
+		{
+			"name": "Get all Products",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Import Products",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"contentType": "application/json",
+							"type": "file",
+							"src": "/C:/Users/terrasa/Desktop/IKEA/JsonFiles/products.json"
+						},
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/files/importProducts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"files",
+						"importProducts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Import Inventory",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "inventory",
+							"contentType": "application/json",
+							"type": "file",
+							"src": "/C:/Users/terrasa/Desktop/IKEA/JsonFiles/inventory.json"
+						},
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/files/importInventory",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"files",
+						"importInventory"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sell Product",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/products/sell/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"products",
+						"sell",
+						"5"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
