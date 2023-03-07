@@ -5,9 +5,7 @@ const { Product } = require('../models');
  * Categories
  */
  const existArticleById = async( id ) => {
-    console.log(ir)
     const existArticle = await Article.findByPk(id);
-    console.log(existArticle)
     if ( !existArticle ) {
         throw new Error(`Article doesn't exist ${ id }`);
     }
